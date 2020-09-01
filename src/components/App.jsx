@@ -12,8 +12,8 @@ class App extends PureComponent {
     render() {
         return (
             <>
-                <Headline headline="chayns® React Todo Example"/>
-                <Intro intro="This is a very simple and basic example of how u can use chayns® and React together."/>
+                <Headline headline="My favorite sites"/>
+                <Intro intro="Auf dieser Seite wirst du auf jeden Fall fündig! Ob es das nächste Restaurant oder der nächste Sportverein ist, es ist für jeden etwas dabei. Meine persönlichen Favoriten habe ich sogar für dich herausgesucht. Also los geht es und lass dich inspierieren. Viel Spaß beim Stöbern!"/>
                 <Todos/>
             </>
         );
