@@ -2,8 +2,8 @@ import { hot } from 'react-hot-loader/root';
 import React, { PureComponent } from 'react';
 
 // Components
-import Headline from './header/headline/Headline';
-import Intro from './header/intro/Intro';
+import Headline from './header/Headline';
+import Intro from './header/Intro';
 import List from './body/List';
 import Footer from './footer/footer';
 
