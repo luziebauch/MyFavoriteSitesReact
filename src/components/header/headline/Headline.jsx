@@ -6,6 +6,19 @@ import './headline.scss';
 // Use PureComponent instead of Component because it handles the shouldComponentUpdate method for u.
 // If u want to define ur own shouldComponentUpdate logic use Component instead of PureComponent.
 class Headline extends PureComponent {
+    constructor() {
+        super();
+        this.state = {
+        };
+        this.searching = this.searching.bind(this);
+    }
+
+    searching() {
+        this.setState(() => ({
+
+        }));
+    }
+
     render() {
         const { headline } = this.props;
 
@@ -21,6 +34,7 @@ class Headline extends PureComponent {
                         id="search"
                         style={{ width: '200px', border: 'none' }}
                         placeholder="Suche"
+                        onChange={() => { this.searching(); }}
                     />
                     <i className="fal fa-search" id="searchIcon" style={{ color: '#858585' }}/>
                 </div>

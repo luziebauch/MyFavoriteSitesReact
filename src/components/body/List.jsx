@@ -1,11 +1,11 @@
 /* eslint-disable react/destructuring-assignment */
 import React, { PureComponent } from 'react';
 // Styles
-import '../body/list.scss';
+import './list.scss';
 // chayns components
 import { Button } from 'chayns-components/lib';
-import chaynsSites from '../body/chaynsSites';
-import Sites from '../body/Sites';
+import chaynsSites from './chaynsSites';
+import Sites from './Sites';
 
 class List extends PureComponent {
     constructor() {
