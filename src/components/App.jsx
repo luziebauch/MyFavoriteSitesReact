@@ -5,7 +5,7 @@ import React, { PureComponent } from 'react';
 import Headline from './header/headline/Headline';
 import Intro from './header/intro/Intro';
 import List from './list/List';
-// import GetData from './GetData';
+import Formular from './formular/Formular';
 
 // We use PureComponent instead of Component because it handles the shouldComponentUpdate method for us.
 // If we want to define our own shouldComponentUpdate logic we have to use Component instead of PureComponent.
@@ -19,6 +19,7 @@ class App extends PureComponent {
                 Also los geht es und lass dich inspierieren. Viel Spaß beim Stöbern!"
                 />
                 <List/>
+                <Formular/>
             </>
         );
     }
