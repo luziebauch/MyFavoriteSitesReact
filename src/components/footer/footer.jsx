@@ -1,10 +1,10 @@
 /* eslint-disable react/destructuring-assignment */
 /* eslint-disable react/prop-types */
 import React, { useState } from 'react';
-import '../list/list.scss';
+import '../body/list.scss';
 import { Accordion, Input, Button, TextArea } from 'chayns-components/lib';
 
-function Formular() {
+function Footer() {
     const [website, setWebsite] = useState('');
     const [firstName, setFirstName] = useState(chayns.env.user.firstName);
     const [lastName, setLastName] = useState(chayns.env.user.lastName);
@@ -54,4 +54,4 @@ function Formular() {
         </Accordion>
     );
 }
-export default Formular;
+export default Footer;

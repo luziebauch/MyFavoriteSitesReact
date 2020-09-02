@@ -4,18 +4,33 @@ import React, { PureComponent } from 'react';
 import './list.scss';
 // chayns components
 import { Button } from 'chayns-components/lib';
-import chaynsSites from '../sites/chaynsSites';
-import Sites from '../sites/Sites';
+import chaynsSites from './chaynsSites';
+import Sites from './Sites';
 
 class List extends PureComponent {
-    constructor() {
+    constructor(searchString, setSearchString) {
         super();
+        this.searchString = searchString;
+        this.setSearchString = setSearchString;
         this.state = {
             siteCounter: 0,
             searchString: 'Ahaus',
             arrayData: chaynsSites,
+            timeout: 0,
         };
         this.getData = this.getData.bind(this);
+    }
+
+    componentWillReceiveProps() {
+        if (this.state.timeout > 0) {
+            clearTimeout(this.state.timeout);
+        }
+        setTimeout(() => {
+            this.setState({
+                arrayData: [],
+            });
+            this.getData();
+        }, 800);
     }
 
     getData() {
@@ -26,7 +41,7 @@ class List extends PureComponent {
                     arrayData: prevState.arrayData.concat(json.Data),
                     siteCounter: prevState.siteCounter + 25,
                 }));
-            }).catch(() => {});
+            }).catch(() => { });
     }
 
     render() {
