@@ -1,44 +1,27 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import { Input } from 'chayns-components/lib';
 import './headline.scss';
-import List from '../body/List';
+import Search from './Search';
 
 // Use PureComponent instead of Component because it handles the shouldComponentUpdate method for u.
 // If u want to define ur own shouldComponentUpdate logic use Component instead of PureComponent.
 class Headline extends PureComponent {
-    constructor() {
+    constructor(searchString, setSearchString) {
         super();
+        this.searchString = searchString;
+        this.setSearchString = setSearchString;
         this.state = {
         };
-        this.searching = this.searching.bind(this);
-    }
-
-    searching() {
-        this.setState(() => ({
-
-        }));
     }
 
     render() {
         const { headline } = this.props;
-
         return (
             <div className="headline">
                 <div>
                     <h1>{headline}</h1>
                 </div>
-                <div className="searching">
-                    <Input
-                        className="input"
-                        type="text"
-                        id="search"
-                        style={{ width: '200px', border: 'none' }}
-                        placeholder="Suche"
-                        onChange={() => { this.searching(); }}
-                    />
-                    <i className="fal fa-search" id="searchIcon" style={{ color: '#858585' }}/>
-                </div>
+                <Search searchString={this.searchString} setSearchString={this.setSearchString}/>
             </div>
         );
     }
