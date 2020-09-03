@@ -5,7 +5,6 @@ import React, { useState } from 'react';
 import Headline from './header/Headline';
 import Intro from './header/Intro';
 import List from './body/List';
-// import Test from './body/Test';
 import Footer from './footer/footer';
 
 // We use PureComponent instead of Component because it handles the shouldComponentUpdate method for us.
@@ -19,8 +18,7 @@ const App = () => {
                 es ist für jeden etwas dabei.Meine persönlichen Favoriten habe ich sogar für dich herausgesucht.
                 Also los geht es und lass dich inspierieren. Viel Spaß beim Stöbern!"
             />
-            <List/>
-            {/* <Test searchString={searchString} setSearchString={setSearchString}/> */}
+            <List searchString={searchString}/>
             <Footer/>
         </>
     );
