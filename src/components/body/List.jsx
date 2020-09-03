@@ -27,16 +27,18 @@ const List = ({ searchString = 'Ahaus' }) => {
 
     useEffect(() => {
         if (!isFirstTime) {
-            if (searchString !== '') {
-                if (timeout > 0) {
-                    clearTimeout(timeout);
-                }
-                setTimeOut(setTimeout(() => {
+            if (timeout > 0) {
+                clearTimeout(timeout);
+            }
+            setTimeOut(setTimeout(() => {
+                if (searchString !== '') {
                     setArrayStart([]);
                     getData(0);
-                    setTimeOut(0);
-                }, 800));
-            }
+                } else {
+                    setArrayStart([]);
+                }
+                setTimeOut(0);
+            }, 800));
         } else {
             setIsFirstTime(false);
         }
