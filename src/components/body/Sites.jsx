@@ -6,8 +6,13 @@ import './list.scss';
 
 function Sites(props) {
     const [source, setSource] = useState('152342');
+    const [name] = useState(`${props.siteInfo.appstoreName}`);
     const image = async () => {
         try {
+            /* if (name.length >= 13) {
+                setName(props.siteInfo.appstoreName.substring(0, 10));
+                // name += '...';
+            } */
             const img = await fetch(`https://sub60.tobit.com/l/${props.siteInfo.locationId}?size=70`);
             if (img.status === 200) {
                 setSource(props.siteInfo.locationId);
@@ -28,7 +33,7 @@ function Sites(props) {
                 src={`https://sub60.tobit.com/l/${source}?size=70`}
                 alt="bla"
             />
-            <div>{props.siteInfo.appstoreName}</div>
+            <div className="appStoreName">{name}</div>
         </div>
     );
 }
