@@ -12,7 +12,7 @@ const chaynsSites = [
     {
         siteId: '77894-19075',
         locationId: 177564,
-        appstoreName: 'Wüllner...',
+        appstoreName: 'Wüllner Grillstube',
     },
     {
         siteId: '73135-19763',
@@ -42,12 +42,12 @@ const chaynsSites = [
     {
         siteId: '64386-20099',
         locationId: 18968,
-        appstoreName: 'Jeckys Pi...',
+        appstoreName: 'Jeckys Pizzeria',
     },
     {
         siteId: '77896-07383',
         locationId: 183124,
-        appstoreName: 'Computer...',
+        appstoreName: 'Computereditor',
     },
 ];
 export default chaynsSites;

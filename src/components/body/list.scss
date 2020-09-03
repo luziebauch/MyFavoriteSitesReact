@@ -15,6 +15,13 @@
     width: 72px;
     margin: 0 auto;
 }
+.appStoreName{
+    overflow: hidden;
+    width: 80px;
+    text-overflow: ellipsis;
+    height: 20px;
+    margin: 0 auto;
+}
 .moreSites{
     text-align: center;
 }
