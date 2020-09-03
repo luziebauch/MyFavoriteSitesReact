@@ -15,6 +15,7 @@ const List = ({ searchString = 'Ahaus' }) => {
     const [timeout, setTimeOut] = useState(0);
     const [search, setSearch] = useState();
     const [buttonTime, setButtonTime] = useState(0);
+    const [disabled, setDisabled] = useState(true);
 
     const getData = async (skip) => {
         chayns.showWaitCursor();
@@ -59,6 +60,14 @@ const List = ({ searchString = 'Ahaus' }) => {
         }
     }, [searchString]);
 
+    useEffect(() => {
+        if (arrayStart.length % 25 !== 0) {
+            setDisabled(false);
+        } else {
+            setDisabled(true);
+        }
+    }, [arrayStart]);
+
     return (
         <div className="mainBody">
             <div className="list">
@@ -66,7 +75,9 @@ const List = ({ searchString = 'Ahaus' }) => {
                 {arrayStart.map((site) => <Sites key={site.locationId} siteInfo={site}/>)}
             </div>
             <div className="moreSites">
-                <Button className="button" onClick={() => { buttonPuffer(); }}>Mehr anzeigen</Button>
+                {disabled && (
+                    <Button className="button" onClick={() => { buttonPuffer(); }}>Mehr anzeigen</Button>
+                )}
             </div>
         </div>
     );
