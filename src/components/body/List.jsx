@@ -13,10 +13,17 @@ const List = ({ searchString = 'Ahaus' }) => {
     const [arrayStart, setArrayStart] = useState([]);
     const [arrayChayns] = useState(chaynsSites);
     const [timeout, setTimeOut] = useState(0);
+    const [search, setSearch] = useState();
+    const [buttonTime, setButtonTime] = useState(0);
 
     const getData = async (skip) => {
         chayns.showWaitCursor();
-        const data = await fetch(`https://chayns1.tobit.com/TappApi/Site/SlitteApp?SearchString=${searchString}&Skip=${skip}&Take=25`);
+        let data;
+        if (searchString !== '') {
+            data = await fetch(`https://chayns1.tobit.com/TappApi/Site/SlitteApp?SearchString=${searchString}&Skip=${skip}&Take=25`);
+        } else {
+            data = await fetch(`https://chayns1.tobit.com/TappApi/Site/SlitteApp?SearchString=${search}&Skip=${skip}&Take=25`);
+        }
         const formatedData = await data.json();
         const arrayData = await formatedData.Data;
         if (data !== null) {
@@ -25,18 +32,28 @@ const List = ({ searchString = 'Ahaus' }) => {
         chayns.hideWaitCursor();
     };
 
+    const buttonPuffer = () => {
+        if (buttonTime > 0) {
+            clearTimeout(buttonTime);
+        }
+        setButtonTime(setTimeout(() => {
+            getData(arrayStart.length);
+        }, 500));
+    };
+
     useEffect(() => {
         if (!isFirstTime) {
-            if (searchString !== '') {
-                if (timeout > 0) {
-                    clearTimeout(timeout);
-                }
-                setTimeOut(setTimeout(() => {
+            if (timeout > 0) {
+                clearTimeout(timeout);
+            }
+            setTimeOut(setTimeout(() => {
+                if (searchString !== '') {
                     setArrayStart([]);
                     getData(0);
-                    setTimeOut(0);
-                }, 800));
-            }
+                    setSearch(searchString);
+                }
+                setTimeOut(0);
+            }, 1000));
         } else {
             setIsFirstTime(false);
         }
@@ -49,7 +66,7 @@ const List = ({ searchString = 'Ahaus' }) => {
                 {arrayStart.map((site) => <Sites key={site.locationId} siteInfo={site}/>)}
             </div>
             <div className="moreSites">
-                <Button className="button" onClick={() => { getData(arrayStart.length); }}>Mehr anzeigen</Button>
+                <Button className="button" onClick={() => { buttonPuffer(); }}>Mehr anzeigen</Button>
             </div>
         </div>
     );
