@@ -6,7 +6,6 @@ import './list.scss';
 import { Button } from 'chayns-components/lib';
 import chaynsSites from './chaynsSites';
 import Sites from './Sites';
-import { array } from 'prop-types';
 
 // eslint-disable-next-line react/prop-types
 const List = ({ searchString = 'Ahaus' }) => {
