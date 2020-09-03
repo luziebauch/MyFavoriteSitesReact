@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import './headline.scss';
 import { Input } from 'chayns-components/lib';
 
@@ -26,8 +26,8 @@ const Headline = ({ headline, searchString, setSearchString }) => (
     </div>
 );
 
-Headline.propTypes = {
+/* Headline.propTypes = {
     headline: PropTypes.string.isRequired,
-};
+}; */
 
 export default Headline;
