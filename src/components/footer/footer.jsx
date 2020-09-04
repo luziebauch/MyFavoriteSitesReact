@@ -10,6 +10,7 @@ function Footer() {
     const [lastName, setLastName] = useState(chayns.env.user.lastName);
     const [eMail, setEmail] = useState('');
     const [annotation, setAnnotation] = useState('');
+    const [disabled, setDisabled] = useState(true);
     function sending() {
         if (website === '' || firstName === '' || lastName === '' || eMail === '') {
             chayns.dialog.alert('Bitte fülle alle Pflichtfelder aus!');
@@ -29,9 +30,11 @@ function Footer() {
     function checkForLogin() {
         if (chayns.env.user.isAuthenticated) {
             sending();
+            setDisabled(false);
         } else {
             chayns.addAccessTokenChangeListener(() => {
                 sending();
+                setDisabled(false);
             });
             chayns.login();
         }
@@ -48,7 +51,9 @@ function Footer() {
                     <TextArea id="annotation" type="text" placeholder="Anmerkung" value={annotation} onChange={setAnnotation} autogrow/>
                 </div>
                 <div className="sending">
-                    <Button className="button" onClick={() => { checkForLogin(); }}>Abschicken</Button>
+                    {disabled && (
+                        <Button className="button" onClick={() => { checkForLogin(); }}>Abschicken</Button>
+                    )}
                 </div>
             </div>
         </Accordion>
