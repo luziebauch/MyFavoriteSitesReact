@@ -6,7 +6,7 @@ import './list.scss';
 
 function Sites(props) {
     const [source, setSource] = useState('152342');
-    const [name] = useState(`${props.siteInfo.appstoreName}`);
+    const [name] = useState(`${props.siteInfo.locationName}`);
     const image = async () => {
         try {
             /* if (name.length >= 13) {

@@ -2,52 +2,52 @@ const chaynsSites = [
     {
         siteId: '59140-09519',
         locationId: 1,
-        appstoreName: 'Bamboo!',
+        locationName: 'Bamboo!',
     },
     {
         siteId: '59141-06162',
         locationId: 3,
-        appstoreName: 'Offsite',
+        locationName: 'Offsite',
     },
     {
         siteId: '77894-19075',
         locationId: 177564,
-        appstoreName: 'Wüllner Grillstube',
+        locationName: 'Wüllner Grillstube',
     },
     {
         siteId: '73135-19763',
         locationId: 125979,
-        appstoreName: 'Stadt Ahaus',
+        locationName: 'Stadt Ahaus',
     },
     {
         siteId: '59143-10608',
         locationId: 240,
-        appstoreName: 'TKWY',
+        locationName: 'TKWY',
     },
     {
         siteId: '70264-12494',
         locationId: 85733,
-        appstoreName: 'AquaAhaus',
+        locationName: 'AquaAhaus',
     },
     {
         siteId: '77896-07352',
         locationId: 183123,
-        appstoreName: 'BookTrade',
+        locationName: 'BookTrade',
     },
     {
         siteId: '77896-07444',
         locationId: 183128,
-        appstoreName: 'Eiszeit',
+        locationName: 'Eiszeit',
     },
     {
         siteId: '64386-20099',
         locationId: 18968,
-        appstoreName: 'Jeckys Pizzeria',
+        locationName: 'Jeckys Pizzeria',
     },
     {
         siteId: '77896-07383',
         locationId: 183124,
-        appstoreName: 'Computereditor',
+        locationName: 'Computereditor',
     },
 ];
 export default chaynsSites;

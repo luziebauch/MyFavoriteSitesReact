@@ -21,13 +21,12 @@ const List = ({ searchString = 'Ahaus' }) => {
         chayns.showWaitCursor();
         let data;
         if (searchString !== '') {
-            data = await fetch(`https://chayns1.tobit.com/TappApi/Site/SlitteApp?SearchString=${searchString}&Skip=${skip}&Take=25`);
+            data = await fetch(`https://chayns2.tobit.com/SiteSearchApi/location/search/${searchString}/?skip=${skip}&take=25`);
         } else {
-            data = await fetch(`https://chayns1.tobit.com/TappApi/Site/SlitteApp?SearchString=${search}&Skip=${skip}&Take=25`);
+            data = await fetch(`https://chayns2.tobit.com/SiteSearchApi/location/search/${search}/?skip=${skip}&take=25`);
         }
-        const formatedData = await data.json();
-        const arrayData = await formatedData.Data;
-        if (data !== null) {
+        const arrayData = await data.json();
+        if (arrayData !== null) {
             setArrayStart((lastArray) => lastArray.concat(arrayData));
         }
         chayns.hideWaitCursor();
@@ -61,10 +60,10 @@ const List = ({ searchString = 'Ahaus' }) => {
     }, [searchString]);
 
     useEffect(() => {
-        if (arrayStart.length % 25 !== 0 || arrayStart.length === 0) {
-            setDisabled(false);
-        } else {
+        if (((arrayStart.length % 25) !== 0 || arrayStart.length === 0) && !isFirstTime) {
             setDisabled(true);
+        } else {
+            setDisabled(false);
         }
     }, [arrayStart]);
 
@@ -75,7 +74,7 @@ const List = ({ searchString = 'Ahaus' }) => {
                 {arrayStart.map((site) => <Sites key={site.locationId} siteInfo={site}/>)}
             </div>
             <div className="moreSites">
-                {disabled && (
+                {!disabled && (
                     <Button className="button" onClick={() => { buttonPuffer(); }}>Mehr anzeigen</Button>
                 )}
             </div>
