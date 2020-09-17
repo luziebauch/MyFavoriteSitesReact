@@ -16,6 +16,7 @@ const List = ({ searchString = 'Ahaus' }) => {
     const [search, setSearch] = useState();
     const [buttonTime, setButtonTime] = useState(0);
     const [disabled, setDisabled] = useState(true);
+    const [searched, setSearched] = useState(false);
 
     const getData = async (skip) => {
         chayns.showWaitCursor();
@@ -31,7 +32,6 @@ const List = ({ searchString = 'Ahaus' }) => {
         }
         chayns.hideWaitCursor();
     };
-
     const buttonPuffer = () => {
         if (buttonTime > 0) {
             clearTimeout(buttonTime);
@@ -51,6 +51,7 @@ const List = ({ searchString = 'Ahaus' }) => {
                     setArrayStart([]);
                     getData(0);
                     setSearch(searchString);
+                    setSearched(true);
                 }
                 setTimeOut(0);
             }, 1000));
@@ -70,7 +71,7 @@ const List = ({ searchString = 'Ahaus' }) => {
     return (
         <div className="mainBody">
             <div className="list">
-                {arrayChayns.map((site) => <Sites key={site.locationId} siteInfo={site}/>)}
+                {searched ? null : arrayChayns.map((site) => <Sites key={site.locationId} siteInfo={site}/>)}
                 {arrayStart.map((site) => <Sites key={site.locationId} siteInfo={site}/>)}
             </div>
             <div className="moreSites">
