@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import '../body/list.scss';
 import { Accordion, Input, Button, TextArea } from 'chayns-components/lib';
 
-function Footer() {
+const Footer = () => {
     const [website, setWebsite] = useState('');
     const [firstName, setFirstName] = useState(chayns.env.user.firstName);
     const [lastName, setLastName] = useState(chayns.env.user.lastName);
@@ -58,5 +58,5 @@ function Footer() {
             </div>
         </Accordion>
     );
-}
+};
 export default Footer;
