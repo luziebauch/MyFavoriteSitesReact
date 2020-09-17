@@ -4,7 +4,7 @@
 import React, { useState, useEffect } from 'react';
 import './list.scss';
 
-function Sites(props) {
+const Sites = (props) => {
     const [source, setSource] = useState('152342');
     const [name] = useState(`${props.siteInfo.locationName}`);
     const image = async () => {
@@ -36,5 +36,5 @@ function Sites(props) {
             <div className="appStoreName">{name}</div>
         </div>
     );
-}
+};
 export default Sites;
